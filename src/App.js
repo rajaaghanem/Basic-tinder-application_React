@@ -19,22 +19,22 @@ class App extends React.Component {
   };
 
   componentDidMount = async () => {
-    this.setState({isloading: true});
+    this.setState({ isloading: true });
 
-    try{
+    try {
       const res = await axios.get(
         "https://61c468f0f1af4a0017d99514.mockapi.io/animals"
       );
-      this.setState({ photos: res.data, isloading:false });
+      this.setState({ photos: res.data, isloading: false });
       this.createImg();
-    }catch(e){}
+    } catch (e) {}
   };
 
-  // changing the state depends on the user input and reset counter if counter >10 
+  // changing the state depends on the user input and reset counter if counter >10
   handleLike = (e) => {
-    if(this.state.count===9){
+    if (this.state.count === 9) {
       this.setState((state) => {
-        return {count: 0 };
+        return { count: 0 };
       });
     }
     const name = `${e.target.name}`;
@@ -44,7 +44,7 @@ class App extends React.Component {
     this.createImg();
   };
 
-  //create an img depends on counter number in state 
+  //create an img depends on counter number in state
   createImg = () => {
     this.setState({
       currentImg: (
@@ -58,7 +58,6 @@ class App extends React.Component {
   };
 
   render() {
-    console.log(this.state.photos);
     return (
       <div className="app-container">
         <div className="state-container">
@@ -67,16 +66,21 @@ class App extends React.Component {
         </div>
 
         <div className="img-container">
-          {this.state.isloading?  <Spinner/>: null}
+          {this.state.isloading ? <Spinner /> : null}
           {this.state.currentName}
           {this.state.currentImg}
         </div>
         <div className="buttons-container">
-          <button onClick={this.handleLike} name="like" className="like-btn">
-            
-          </button>
-          <button onClick={this.handleLike} name="dislike" className="dislike-btn">
-          </button>
+          <button
+            onClick={this.handleLike}
+            name="like"
+            className="like-btn"
+          ></button>
+          <button
+            onClick={this.handleLike}
+            name="dislike"
+            className="dislike-btn"
+          ></button>
         </div>
       </div>
     );
