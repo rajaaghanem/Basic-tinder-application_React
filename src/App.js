@@ -50,7 +50,7 @@ class App extends React.Component {
       currentImg: (
         <img
           src={`${this.state.photos[this.state.count].img}`}
-          className="img-container"
+          className="img-container" alt={this.state.photos[this.state.count].name}
         />
       ),
       currentName: this.state.photos[this.state.count].name,
