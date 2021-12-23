@@ -21,6 +21,7 @@ class App extends React.Component {
       "https://61c468f0f1af4a0017d99514.mockapi.io/animals"
     );
     this.setState({ photos: res.data });
+    this.createImg();
   };
 
   // changing the state depends on the user input
