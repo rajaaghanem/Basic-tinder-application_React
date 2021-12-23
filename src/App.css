@@ -1,13 +1,17 @@
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: space-around;
+.state-container {
+  display: flex;
+  justify-content: center;
 }
 
-.card-design {
-  box-shadow: 0.6rem 0.6rem 2rem gray;
-  margin: 1rem;
+.app-container {
+  width: 50rem;
+  height: 50rem;
+  padding: 5rem;
   text-align: center;
-  border: 0.3rem solid rgb(112, 58, 148);
-  border-radius: 2rem;
+}
+
+.img-container {
+  width: 50rem;
+  height: 20rem;
+  text-align: center;
 }
