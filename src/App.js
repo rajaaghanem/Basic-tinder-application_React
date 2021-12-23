@@ -50,8 +50,8 @@ class App extends React.Component {
     return (
       <div className="app-container">
         <div className="state-container">
-          <div>{`like: ${this.state.like}`}</div>
-          <div>{`dislike: ${this.state.dislike}`}</div>
+          <div>{`likes: ${this.state.like}`}</div>
+          <div>{`dislikes: ${this.state.dislike}`}</div>
         </div>
 
         <div className="img-container">

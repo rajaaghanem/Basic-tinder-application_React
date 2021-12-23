@@ -14,15 +14,17 @@
 }
 
 .app-container {
-  width: 50rem;
-  height: 70rem;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
   padding: 5rem;
   text-align: center;
 }
 
 .img-container {
-  width: 50rem;
-  height: 40rem;
+  width: 50vw;
+  height: 40vh;
   text-align: center;
   border-radius: 1rem;
   font-size: 2rem;
