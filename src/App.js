@@ -17,15 +17,22 @@ class App extends React.Component {
   };
 
   componentDidMount = async () => {
-    const res = await axios.get(
-      "https://61c468f0f1af4a0017d99514.mockapi.io/animals"
-    );
-    this.setState({ photos: res.data });
-    this.createImg();
+    try{
+      const res = await axios.get(
+        "https://61c468f0f1af4a0017d99514.mockapi.io/animals"
+      );
+      this.setState({ photos: res.data });
+      this.createImg();
+    }catch(e){}
   };
 
   // changing the state depends on the user input
   handleLike = (e) => {
+    if(this.state.count===9){
+      this.setState((state) => {
+        return {count: 0 };
+      });
+    }
     const name = `${e.target.name}`;
     this.setState((state) => {
       return { [name]: state[name] + 1, count: state.count + 1 };
