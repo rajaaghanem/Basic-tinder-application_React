@@ -8,17 +8,28 @@ if (module.hot) {
 class App extends React.Component {
   state = { like: 0, dislike: 0 };
 
+// changing the state depends on the user input
+  handleLike=(e)=>{
+    const name =`${e.target.name}`;
+    console.log(name);
+    this.setState((state)=>{
+         return {[name]: state[name]+1};
+        })
+  }
+
   render() {
     return (
       <div className="app-container">
         <div className="state-container">
-          <div>{this.state.like}</div>
-          <div>{this.state.dislike}</div>
+          <div>{`like: ${this.state.like}`}</div>
+          <div>{`dislike: ${this.state.dislike}`}</div>
         </div>
 
         <div className="img-container">img</div>
-        <button>like</button>
-        <button>dislike</button>
+        <div className="buttons-container">
+          <button onClick={this.handleLike} name="like">like</button>
+          <button onClick={this.handleLike} name="dislike">dislike</button>
+        </div>
       </div>
     );
   }
