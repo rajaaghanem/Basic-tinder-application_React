@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./App.css";
+import Spinner from "./components/spinner/Spinner";
 
 if (module.hot) {
   module.hot.accept();
@@ -14,19 +15,22 @@ class App extends React.Component {
     count: 0,
     currentImg: "",
     currentName: "",
+    isloading: false,
   };
 
   componentDidMount = async () => {
+    this.setState({isloading: true});
+
     try{
       const res = await axios.get(
         "https://61c468f0f1af4a0017d99514.mockapi.io/animals"
       );
-      this.setState({ photos: res.data });
+      this.setState({ photos: res.data, isloading:false });
       this.createImg();
     }catch(e){}
   };
 
-  // changing the state depends on the user input
+  // changing the state depends on the user input and reset counter if counter >10 
   handleLike = (e) => {
     if(this.state.count===9){
       this.setState((state) => {
@@ -40,6 +44,7 @@ class App extends React.Component {
     this.createImg();
   };
 
+  //create an img depends on counter number in state 
   createImg = () => {
     this.setState({
       currentImg: (
@@ -62,6 +67,7 @@ class App extends React.Component {
         </div>
 
         <div className="img-container">
+          {this.state.isloading?  <Spinner/>: null}
           {this.state.currentName}
           {this.state.currentImg}
         </div>
