@@ -2,7 +2,6 @@ import React from "react";
 import axios from "axios";
 import "./App.css";
 import Spinner from "./components/spinner/Spinner";
-import { logDOM } from "@testing-library/react";
 
 if (module.hot) {
   module.hot.accept();
