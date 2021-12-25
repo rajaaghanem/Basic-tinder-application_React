@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./App.css";
 import Spinner from "./components/spinner/Spinner";
+import { logDOM } from "@testing-library/react";
 
 if (module.hot) {
   module.hot.accept();
@@ -26,7 +27,12 @@ class App extends React.Component {
         "https://61c468f0f1af4a0017d99514.mockapi.io/animals"
       );
       this.setState({ photos: res.data, isloading: false });
+      const obj={
+        name:"Lion",
+        img:"https://images.unsplash.com/photo-1511216113906-8f57bb83e776?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
+      }
       this.createImg();
+      console.log(res.data);
     } catch (e) {}
   };
 

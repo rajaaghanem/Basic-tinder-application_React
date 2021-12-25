@@ -24,10 +24,11 @@
 
 .img-container {
   width: 50vw;
-  height: 40vh;
+  height: 60vh;
   text-align: center;
   border-radius: 1rem;
   font-size: 2rem;
+  object-fit: cover;
 }
 
 .buttons-container {
