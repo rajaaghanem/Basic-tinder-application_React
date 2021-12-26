@@ -30,9 +30,9 @@ class App extends React.Component {
     } catch (e) {}
   };
 
-  // changing the state depends on the user input and reset counter if counter >10
+  // changing the state depends on the user input and reset counter if counter > photos.length
   handleLike = (e) => {
-    if (this.state.count === 9) {
+    if (this.state.count === this.state.photos.length) {
       this.setState((state) => {
         return { count: 0 };
       });
